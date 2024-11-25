@@ -1,0 +1,130 @@
+/* Reseta margens e paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilização do corpo */
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('hospital1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-color: #f4f4f4; /* Fallback para o fundo */
+  margin-top: 300px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 0; /* Remove qualquer espaço no topo do corpo */
+}
+
+/* Estilização do menu */
+nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  position: fixed;
+  top: 0; /* Garante que o menu fique colado no topo */
+  left: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0); /* Inicialmente, sem fundo */
+  transition: background-color 0.5s ease; /* Transição suave no fundo */
+}
+
+/* Estilo para o menu quando a página for rolada */
+nav.scrolled {
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+}
+
+/* Logo */
+nav .logo {
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+nav .logo img {
+  height: 50px;
+  display: block;
+}
+
+/* Lista de navegação */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Itens do menu */
+nav ul li {
+  margin: 0 15px;
+}
+
+/* Links com caixas arredondadas */
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 30px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Sombra para legibilidade */
+}
+
+/* Efeito de hover nos links */
+nav ul li a:hover {
+  color: white;
+  border-color: red;
+  transform: scale(1.1); /* Leve aumento ao passar o mouse */
+  background-color: red;
+}
+
+/* Estilo específico para a aba Colaborador */
+nav ul li a.colaborador {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 25px;
+}
+
+/* Efeito de hover na aba Colaborador */
+nav ul li a.colaborador:hover {
+  background-color: darkred;
+  transform: scale(1.1); /* Mesmo efeito de escala */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo para menu responsivo */
+    width: 100%;
+    position: absolute;
+    top: 70px; /* Ajuste baseado na altura do menu */
+    left: 0;
+    display: none;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  nav ul li a {
+    padding: 10px 20px;
+  }
+}
