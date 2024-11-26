@@ -17,9 +17,20 @@
             <li><a href="#servicos">Serviços</a></li>
             <li><a href="#convenios">Convênios</a></li>
             <li><a href="#fale-conosco">Fale Conosco</a></li>
-            <li><a href="http://177.44.182.111:9097/wspV2/?key=587a886abb591f6695e83751b35bef34c152c73b167068d642fdfa697cfeb574722daea91df3e3694e683ffdc2b9cbd045438a70dcf0c2a9a1076d06975765efa4eb897aaa2d4068e4fa5b054f12234f" target="_blank">WEBSYS</a></li>
+            <li><a href="#websys">WEBSYS</a></li>
             <li><a href="#colaborador" class="colaborador">Colaborador</a></li>
         </ul>
     </nav>
+
+    <script>
+      window.addEventListener('scroll', function() {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+    </script>
 </body>
 </html>
