@@ -16,7 +16,25 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-top: 0; /* Remove qualquer espaço no topo do corpo */
+}
+
+/* Div para o fundo */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('hospital1.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1; /* Fica atrás de todo o conteúdo */
+  transition: filter 0.5s ease; /* Transição suave para o desfoque */
+}
+
+/* Efeito de desfoque */
+.background.scrolled {
+  filter: blur(5px); /* Ajuste o valor para controlar o desfoque */
 }
 
 /* Estilização do menu */
@@ -24,30 +42,48 @@ nav {
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 20px;
   position: fixed;
-  top: 0; /* Garante que o menu fique colado no topo */
+  top: 0;
   left: 0;
   z-index: 1000;
   background-color: rgba(0, 0, 0, 0); /* Inicialmente, sem fundo */
-  transition: background-color 0.5s ease; /* Transição suave no fundo */
+  transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
 
 /* Estilo para o menu quando a página for rolada */
 nav.scrolled {
-  background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
-
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Logo */
 nav .logo {
-  margin-right: 20px;
   margin-left: 10px;
 }
 
 nav .logo img {
   height: 50px;
   display: block;
+}
+
+/* Botão do menu (para dispositivos móveis) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.menu-toggle span {
+  width: 100%;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
 }
 
 /* Lista de navegação */
@@ -106,6 +142,10 @@ nav ul li a.colaborador:hover {
 
 /* Responsividade */
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
   nav ul {
     flex-direction: column;
     align-items: flex-start;
@@ -127,5 +167,22 @@ nav ul li a.colaborador:hover {
 
   nav ul li a {
     padding: 10px 20px;
+  }
+
+  nav ul li a.colaborador {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav ul li a {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+
+  nav ul li a.colaborador {
+    padding: 10px;
+    font-size: 13px;
   }
 }
